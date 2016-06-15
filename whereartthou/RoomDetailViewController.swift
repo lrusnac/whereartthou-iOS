@@ -35,6 +35,7 @@ class RoomDetailViewController: UIViewController, UITextFieldDelegate, MKMapView
             locationManager.delegate = self
 
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.allowsBackgroundLocationUpdates = true
             locationManager.startUpdatingLocation()
         } else {
             locationManager.requestAlwaysAuthorization()

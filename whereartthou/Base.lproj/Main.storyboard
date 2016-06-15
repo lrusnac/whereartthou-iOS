@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rD5-R1-se5">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Rooms-->
+        <scene sceneID="Int-H0-f3h">
+            <objects>
+                <tableViewController id="dAG-yg-RPt" customClass="MainTableViewController" customModule="whereartthou" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gVQ-XG-Ut1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="room" textLabel="Lnd-pi-gRJ" style="IBUITableViewCellStyleDefault" id="07F-ww-iQa">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="07F-ww-iQa" id="2NY-lc-kOc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lnd-pi-gRJ">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="GEL-mL-qrA" kind="show" identifier="showRoomDetail" id="lsu-kx-qIT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dAG-yg-RPt" id="dBN-F3-TEv"/>
+                            <outlet property="delegate" destination="dAG-yg-RPt" id="jXK-sf-ALQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Rooms" id="wE4-1G-9Lt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vfG-2n-QPX">
+                            <connections>
+                                <action selector="addNewRoom:" destination="dAG-yg-RPt" id="pHY-Fg-7Gc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxH-FF-eeA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1779" y="387"/>
+        </scene>
+        <!--Room Detail View Controller-->
+        <scene sceneID="hz6-Uk-6CB">
+            <objects>
+                <viewController id="GEL-mL-qrA" customClass="RoomDetailViewController" customModule="whereartthou" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iRI-GA-8UT"/>
+                        <viewControllerLayoutGuide type="bottom" id="oKc-wH-vth"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5i4-yc-nRc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geh-UJ-aon">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="geh-UJ-aon" firstAttribute="leading" secondItem="5i4-yc-nRc" secondAttribute="leading" id="miZ-bQ-kMC"/>
+                            <constraint firstItem="geh-UJ-aon" firstAttribute="top" secondItem="5i4-yc-nRc" secondAttribute="top" id="pFB-io-vuU"/>
+                            <constraint firstAttribute="trailing" secondItem="geh-UJ-aon" secondAttribute="trailing" id="rBj-Qn-5e0"/>
+                            <constraint firstItem="geh-UJ-aon" firstAttribute="bottom" secondItem="oKc-wH-vth" secondAttribute="top" id="rbj-bv-t5K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="geh-UJ-aon" id="b7D-cl-3Rt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sp9-zf-pBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2491" y="387"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hIC-Tu-ye0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rD5-R1-se5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZeR-AF-LfI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dAG-yg-RPt" kind="relationship" relationship="rootViewController" id="GP1-HJ-IQw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxt-gf-5bL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="967" y="387"/>
+        </scene>
+    </scenes>
+</document>
